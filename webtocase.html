@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- Browser Tab / Site Name -->
 <title>WABAG Support Portal</title>
 
 <style>
@@ -11,96 +9,91 @@
     margin: 0;
     min-height: 100vh;
     font-family: "Segoe UI", Arial, sans-serif;
+
     background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
       url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
     background-size: cover;
     background-position: center;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    padding: 20px;               /* prevents top cutoff */
+    padding: 60px 20px; /* 🔥 THIS creates space above & below */
     box-sizing: border-box;
   }
 
   .form-card {
-    background: #0f1f2d;
+    background: rgba(15, 31, 45, 0.95);
     width: 460px;
-    max-height: calc(100vh - 40px); /* fit to screen */
-    overflow-y: auto;
-    padding: 35px;
-    border-radius: 16px;
+    padding: 26px 30px;
+    border-radius: 18px;
     color: #ffffff;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.55);
   }
 
   .brand {
     text-align: center;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
   .subtitle {
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
     color: #bfbfbf;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
   }
 
   .form-group {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
 
   .form-group input,
   .form-group textarea,
   .form-group select {
     width: 100%;
-    padding: 12px;
+    padding: 11px;
     border-radius: 8px;
     border: none;
     outline: none;
     background: #1f2f3d;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   textarea {
     resize: none;
-    height: 90px;
+    height: 72px;
+  }
+
+  select {
+    appearance: none;
   }
 
   .submit-btn {
     width: 100%;
     padding: 13px;
-    border-radius: 30px;
+    border-radius: 28px;
     border: none;
-    background: #1abc9c;
+    background: #20c997;
     color: #000;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .submit-btn:hover {
-    background: #16a085;
+    background: #17b18a;
   }
 
   .footer-text {
     text-align: center;
     font-size: 11px;
     color: #aaa;
-    margin-top: 15px;
-  }
-
-  /* Mobile Optimization */
-  @media (max-height: 700px) {
-    .form-card {
-      padding: 25px;
-    }
+    margin-top: 12px;
   }
 </style>
 </head>
@@ -109,15 +102,12 @@
 
 <div class="form-card">
 
-  <!-- Site / Company Name -->
   <div class="brand">WABAG Solutions</div>
   <div class="subtitle">Project Enquiry & Customer Support</div>
 
-  <!-- Salesforce Web-to-Case Form -->
   <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DKa00000YDA5y"
         method="POST">
 
-    <!-- Salesforce Required Hidden Fields -->
     <input type="hidden" name="orgid" value="00DKa00000YDA5y">
     <input type="hidden" name="retURL" value="https://vh-india.github.io/demo/index.html">
     <input type="hidden" name="external" value="1">
@@ -139,12 +129,12 @@
     </div>
 
     <div class="form-group">
-      <textarea name="description" placeholder="Describe your requirement in detail"></textarea>
+      <textarea name="description" placeholder="Describe your requirement"></textarea>
     </div>
 
     <div class="form-group">
       <select name="priority">
-        <option value="">Select Priority</option>
+        <option value="">Priority</option>
         <option value="Critical">Critical</option>
         <option value="High">High</option>
         <option value="Medium">Medium</option>
@@ -154,7 +144,7 @@
 
     <div class="form-group">
       <select name="type">
-        <option value="">Select Request Type</option>
+        <option value="">Request Type</option>
         <option value="Account Support">Account Support</option>
         <option value="General">General</option>
         <option value="Product Support">Product Support</option>
