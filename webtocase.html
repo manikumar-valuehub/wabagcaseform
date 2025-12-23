@@ -5,163 +5,217 @@
 <title>WABAG Support Portal</title>
 
 <style>
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: "Segoe UI", Arial, sans-serif;
+/* ---------- Page ---------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(120deg, rgba(0,0,0,0.7), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
 
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-      url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
-    background-size: cover;
-    background-position: center;
+/* ---------- Card ---------- */
+.form-card {
+  background: rgba(20, 34, 50, 0.96);
+  width: 520px;
+  padding: 30px 34px;
+  border-radius: 22px;
+  color: #ffffff;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.brand {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
 
-    padding: 60px 20px; /* 🔥 THIS creates space above & below */
-    box-sizing: border-box;
-  }
+.subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #cfd8dc;
+  margin-bottom: 24px;
+}
 
+/* ---------- Grid Layout ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* ---------- Inputs ---------- */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 5px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06); /* 🔥 lighter */
+  color: #ffffff;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.65);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  background: rgba(255,255,255,0.1);
+  border-color: #20c997;
+  box-shadow: 0 0 0 3px rgba(32,201,151,0.25);
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* ---------- Button ---------- */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #20c997, #17b18a);
+  color: #04110c;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(32,201,151,0.35);
+}
+
+/* ---------- Footer ---------- */
+.footer-text {
+  text-align: center;
+  font-size: 11px;
+  color: #b0bec5;
+  margin-top: 16px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
   .form-card {
-    background: rgba(15, 31, 45, 0.95);
-    width: 460px;
-    padding: 26px 30px;
-    border-radius: 18px;
-    color: #ffffff;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.55);
-  }
-
-  .brand {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .subtitle {
-    text-align: center;
-    font-size: 12px;
-    color: #bfbfbf;
-    margin-bottom: 18px;
-  }
-
-  .form-group {
-    margin-bottom: 10px;
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
     width: 100%;
-    padding: 11px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    background: #1f2f3d;
-    color: #ffffff;
-    font-size: 13px;
   }
-
-  textarea {
-    resize: none;
-    height: 72px;
+  .form-grid {
+    grid-template-columns: 1fr;
   }
-
-  select {
-    appearance: none;
+  .full-width {
+    grid-column: span 1;
   }
-
-  .submit-btn {
-    width: 100%;
-    padding: 13px;
-    border-radius: 28px;
-    border: none;
-    background: #20c997;
-    color: #000;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 8px;
-  }
-
-  .submit-btn:hover {
-    background: #17b18a;
-  }
-
-  .footer-text {
-    text-align: center;
-    font-size: 11px;
-    color: #aaa;
-    margin-top: 12px;
-  }
+}
 </style>
 </head>
 
 <body>
 
 <div class="form-card">
-
   <div class="brand">WABAG Solutions</div>
   <div class="subtitle">Project Enquiry & Customer Support</div>
 
-  <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DKa00000YDA5y"
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8"
         method="POST">
 
+    <!-- Salesforce Hidden Fields -->
     <input type="hidden" name="orgid" value="00DKa00000YDA5y">
     <input type="hidden" name="retURL" value="https://vh-india.github.io/demo/index.html">
     <input type="hidden" name="external" value="1">
 
-    <div class="form-group">
-      <input type="text" name="name" placeholder="Full Name">
-    </div>
+    <div class="form-grid">
 
-    <div class="form-group">
-      <input type="email" name="email" placeholder="Email Address">
-    </div>
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Full Name" required>
+      </div>
 
-    <div class="form-group">
-      <input type="text" name="phone" placeholder="Contact Number">
-    </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email Address" required>
+      </div>
 
-    <div class="form-group">
-      <input type="text" name="subject" placeholder="Subject">
-    </div>
+      <div class="form-group">
+        <input type="text" name="phone" placeholder="Contact Number">
+      </div>
 
-    <div class="form-group">
-      <textarea name="description" placeholder="Describe your requirement"></textarea>
-    </div>
+      <!-- 🔥 Order Number -->
+      <div class="form-group">
+        <input type="text"
+             id="00NKa00000e5QhV"
+               name="00NKa00000e5QhV"
+               placeholder="Order Number (if available)">
+      </div>
 
-    <div class="form-group">
-      <select name="priority">
-        <option value="">Priority</option>
-        <option value="Critical">Critical</option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-      </select>
-    </div>
+    <!-- //  Order Number:<input  id="00NKa00000e5QhV" name="00NKa00000e5QhV" size="20" type="text" />
+ -->
 
-    <div class="form-group">
-      <select name="type">
-        <option value="">Request Type</option>
-        <option value="Account Support">Account Support</option>
-        <option value="General">General</option>
-        <option value="Product Support">Product Support</option>
-        <option value="Technical Issue">Technical Issue</option>
-      </select>
+      <div class="form-group full-width">
+        <input type="text" name="subject" placeholder="Subject">
+      </div>
+
+      <div class="form-group full-width">
+        <textarea name="description" placeholder="Describe your requirement"></textarea>
+      </div>
+
+      <div class="form-group">
+        <select name="priority">
+          <option value="">Priority</option>
+          <option value="Critical">Critical</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <select name="type">
+          <option value="">Request Type</option>
+          <option value="Account Support">Account Support</option>
+          <option value="General">General</option>
+          <option value="Product Support">Product Support</option>
+          <option value="Technical Issue">Technical Issue</option>
+        </select>
+      </div>
+
     </div>
 
     <button type="submit" class="submit-btn">
-      Submit Enquiry
+      Submit Case
     </button>
   </form>
 
   <div class="footer-text">
     © 2025 WABAG Solutions • Powered by Salesforce
   </div>
-
 </div>
 
 </body>
 </html>
+ 
